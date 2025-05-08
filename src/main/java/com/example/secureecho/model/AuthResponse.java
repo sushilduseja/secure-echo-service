@@ -5,6 +5,9 @@ public class AuthResponse {
     private String tokenType;
     private long expiresIn;
 
+    public AuthResponse() {
+    }
+
     public AuthResponse(String token, long expiresIn) {
         this.token = token;
         this.tokenType = "Bearer";

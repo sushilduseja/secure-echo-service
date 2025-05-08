@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: secure-echo-service
+
+server:
+  port: 8080
+
+# JWT Configuration
+# Values will be loaded from .env file or environment variables
+# See .env.example for the required variables
+jwt:
+  secret: ${JWT_SECRET:default-dev-only-secret-key-replace-in-production}
+  expiration: 3600000  # 1 hour in milliseconds
+
+# Client Credentials Configuration
+# Values will be loaded from .env file or environment variables
+security:
+  clients:
+    list:
+      - id: user-client
+        apiKey: ${USER_CLIENT_API_KEY}
+        roles:
+          - USER_ROLE
+      - id: admin-client
+        apiKey: ${ADMIN_CLIENT_API_KEY}
+        roles:
+          - USER_ROLE
+          - ADMIN_ROLE
+
+# Logging Configuration
+logging:
+  level:
+    org.springframework.security: DEBUG
+    com.example.secureecho: DEBUG
+    com.example.secureecho.config: DEBUG
+    com.example.secureecho.security: DEBUG

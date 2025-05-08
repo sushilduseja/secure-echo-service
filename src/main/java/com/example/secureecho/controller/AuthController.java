@@ -1,5 +1,4 @@
 package com.example.secureecho.controller;
-
 import com.example.secureecho.model.AuthRequest;
 import com.example.secureecho.model.AuthResponse;
 import com.example.secureecho.service.AuthService;
